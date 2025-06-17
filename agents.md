@@ -4,7 +4,7 @@
 
 1. `pip install -r requirements.txt`
 2. Copy `.env.example` → `.env` and fill with your Alpaca paper‑trading keys (and optional `POLYGON_API_KEY`).
-3. Run a smoke test: `python snap_delta_bot.py --simulate 5`  # five fake ticks.
+3. Run a smoke test: `python snap_delta_bot.py --simulate`  # emits dummy ticks.
 
 ## Validation Rules
 
