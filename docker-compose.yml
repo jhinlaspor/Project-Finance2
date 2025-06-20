@@ -1,0 +1,6 @@
+version: '3'
+services:
+  bot:
+    build: .
+    env_file: .env
+    command: python snap_delta_bot.py

@@ -1,5 +1,4 @@
 # --- Core ---
-alpaca-trade-api==2.3.0    # latest that supports 3.10 and websockets 11
 alpaca-py==0.23.0
 polygon-api-client==1.10.0
 ta==0.11.0
@@ -12,7 +11,6 @@ structlog==24.1.0
 # --- Dev / CI ---
 pytest==8.2.0              # tests/test_bot.py smoke test
 ruff==0.4.4                # lint (optional but fast)
-
 # --- Pin transitive deps that occasionally break builds ---
 pytz==2024.1
 numpy==1.26.4
