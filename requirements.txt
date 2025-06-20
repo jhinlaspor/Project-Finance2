@@ -1,5 +1,7 @@
 # --- Core ---
-alpaca-trade-api==2.3.0    # latest that supports 3.10 and websockets 11
+alpaca-py==0.23.0
+polygon-api-client==1.10.0
+ta==0.11.0
 python-dotenv==1.0.0
 websockets==11.0.3         # 12.x needs Py 3.11+
 
