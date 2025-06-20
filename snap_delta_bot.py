@@ -85,6 +85,7 @@ ALPACA_CLIENT = None
 POLY_CLIENT = None
 
 
+
 def validate_env() -> None:
     required = ["APCA_API_KEY_ID", "APCA_API_SECRET_KEY"]
     missing = [v for v in required if not os.getenv(v)]
@@ -94,12 +95,16 @@ def validate_env() -> None:
         )
 
 
+
 if not SIMULATION_ENV:
     from polygon import RESTClient as PolygonRest
 
     from alpaca.trading.client import TradingClient
 
+
     validate_env()
+
+
     ALPACA_CLIENT = TradingClient(
         api_key=os.getenv("APCA_API_KEY_ID"),
         secret_key=os.getenv("APCA_API_SECRET_KEY"),
@@ -285,8 +290,10 @@ async def main(simulate: bool = False):
     """Entry point for the bot."""
     STATE.reset()
 
+
     if not simulate:
         validate_env()
+
 
     if simulate:
         for i in range(5):
