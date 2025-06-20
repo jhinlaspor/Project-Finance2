@@ -11,7 +11,7 @@ structlog==24.1.0
 # --- Dev / CI ---
 pytest==8.2.0              # tests/test_bot.py smoke test
 ruff==0.4.4                # lint (optional but fast)
-
+black==24.4.2
 # --- Pin transitive deps that occasionally break builds ---
 pytz==2024.1
 numpy==1.26.4
