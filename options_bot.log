@@ -1,0 +1,1 @@
+2025-07-26 02:01:31,670 - __main__ - ERROR - Missing Alpaca API credentials. Please set ALPACA_API_KEY and ALPACA_SECRET_KEY environment variables.
