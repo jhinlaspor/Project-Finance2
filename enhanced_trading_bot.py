@@ -612,6 +612,10 @@ class EnhancedOptionsBot:
 def main():
     """Main function to run the enhanced trading bot"""
     
+    # Load environment variables
+    from dotenv import load_dotenv
+    load_dotenv()
+    
     # Load configuration
     config = EnhancedBotConfig(
         alpaca_api_key=os.getenv('ALPACA_API_KEY'),
@@ -621,6 +625,13 @@ def main():
     
     if not config.alpaca_api_key or not config.alpaca_secret_key:
         logger.error("Missing Alpaca API credentials. Please set ALPACA_API_KEY and ALPACA_SECRET_KEY environment variables.")
+        return
+    
+    # Check for placeholder values
+    if (config.alpaca_api_key == 'your_paper_trading_api_key_here' or 
+        config.alpaca_secret_key == 'your_paper_trading_secret_key_here'):
+        logger.error("Please update the .env file with your actual Alpaca API credentials.")
+        logger.info("Current values are placeholders. Update them with your real API keys.")
         return
     
     # Create and start bot
