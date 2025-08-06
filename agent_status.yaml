@@ -1,16 +1,16 @@
 # Alpaca Crypto Trading System - Agent Status
-# Last Updated: 2025-08-06 17:52:47 UTC
+# Last Updated: 2025-08-06 18:07:09 UTC
 
 system_info:
-  name: "BTC EMA Crossover Trading System"
-  version: "1.0.0"
+  name: "BTC Trading System - Multiple Strategies Tested"
+  version: "2.0.0"
   environment: "Alpaca Paper Trading"
   
 current_status:
   mode: "DEVELOPMENT"  # DEVELOPMENT | PAPER | LIVE
   phase: 2
   phase_status: "FAILED"
-  last_update: "2025-08-06T17:52:47Z"
+  last_update: "2025-08-06T18:07:09Z"
   
 phase_results:
   phase1:
@@ -69,8 +69,34 @@ api_configuration:
   base_url: "https://paper-api.alpaca.markets"
   websocket_url: "wss://stream.data.alpaca.markets/v2/crypto"
   
+strategies_tested:
+  1_ema_crossover:
+    timeframe: "1m"
+    results:
+      sharpe_ratio: 0.05
+      max_drawdown: -0.0349
+      status: "FAILED"
+  
+  2_advanced_multi_indicator:
+    timeframe: "5m"
+    indicators: ["RSI", "MACD", "Bollinger Bands", "Volume"]
+    results:
+      sharpe_ratio: -0.68
+      max_drawdown: -1.0066
+      status: "FAILED"
+      
+  3_trend_following:
+    timeframe: "5m"
+    indicators: ["EMA 20/50/200", "RSI", "ATR"]
+    results:
+      sharpe_ratio: 10.67
+      max_drawdown: -0.9517
+      status: "FAILED"
+      note: "High Sharpe but unacceptable drawdown due to risk management bug"
+
 notes:
-  - "Initial EMA crossover strategy failed to meet Sharpe >= 1.0 criteria"
-  - "Optimization tested 5 parameter combinations but couldn't achieve target metrics"
-  - "Strategy may need fundamental redesign or additional indicators"
-  - "Awaiting user input for next steps"
+  - "All three strategies failed to meet the criteria of Sharpe >= 1.0 AND Max DD <= 10%"
+  - "5-minute timeframe shows promise but needs better risk management"
+  - "Trend following approach had best Sharpe ratio but worst drawdown"
+  - "Consider mean reversion or market making strategies instead of trend following"
+  - "May need to implement portfolio-based approach with multiple uncorrelated strategies"

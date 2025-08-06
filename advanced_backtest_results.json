@@ -1,0 +1,30 @@
+{
+  "initial_capital": 10000,
+  "final_capital": -66.14236391228191,
+  "total_return": -1.0066142363912283,
+  "cagr": NaN,
+  "sharpe_ratio": -0.6755113092373256,
+  "max_drawdown": -1.0066142363912283,
+  "total_trades": 1,
+  "long_trades": 0,
+  "short_trades": 1,
+  "winning_trades": 0,
+  "win_rate": 0.0,
+  "avg_win_pct": 0,
+  "avg_loss_pct": -0.6614236391228191,
+  "profit_factor": 0.0,
+  "days_in_backtest": 180,
+  "trades": [
+    {
+      "entry_time": "2024-07-19 15:05:00+00:00",
+      "exit_time": "2024-07-19 16:00:00+00:00",
+      "entry_price": 65671.98,
+      "exit_price": 66106.35,
+      "position_size": 0.15227194307222047,
+      "position_type": "short",
+      "pnl": -66.14236391228191,
+      "pnl_pct": -0.6614236391228191,
+      "exit_reason": "stop_loss"
+    }
+  ]
+}
