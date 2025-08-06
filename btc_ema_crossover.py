@@ -406,6 +406,179 @@ def run_phase2() -> None:
 
 
 # ---------------------------------------------------------------------------
+# Phase 3 – Paper-trading deployment
+# ---------------------------------------------------------------------------
+
+import asyncio
+import csv
+import logging
+from datetime import timedelta
+
+try:
+    from alpaca.data.live.crypto import CryptoDataStream
+    from alpaca.trading.client import TradingClient
+    from alpaca.trading.requests import MarketOrderRequest
+    from alpaca.trading.enums import OrderSide, TimeInForce
+except ImportError:
+    CryptoDataStream = None  # type: ignore
+
+# Shared constants
+PARAMS_PATH = "backtest_results.json"
+TRADES_CSV = "alpaca_trades.csv"
+
+
+async def run_phase3_async() -> None:  # noqa: C901 – asyncio complex
+    if CryptoDataStream is None:
+        print("alpaca-py >=1.6 required for streaming – aborting phase 3.")
+        return
+
+    if not os.path.exists(PARAMS_PATH):
+        raise FileNotFoundError("backtest_results.json not found – run phase2 first")
+
+    with open(PARAMS_PATH, "r", encoding="utf-8") as fh:
+        params = json.load(fh)["params"]
+    short_ma = params["short_ma"]
+    long_ma = params["long_ma"]
+    atr_mult = params["atr_mult"]
+
+    # Prepare trading + streaming clients (paper env by default)
+    trading = TradingClient(os.environ.get("APCA_API_KEY_ID"), os.environ.get("APCA_API_SECRET_KEY"), paper=True)
+    stream = CryptoDataStream()
+
+    # Load historical tail to seed indicators
+    df_tail = fetch_crypto_bars(days=max(long_ma * 2, 200))
+    df_tail = add_indicators(df_tail)
+
+    position_open = False
+    entry_price = 0.0
+    trailing_stop = np.nan
+
+    # Logging setup
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
+
+    async def on_bar(bar):  # pylint: disable=unused-argument
+        nonlocal df_tail, position_open, entry_price, trailing_stop
+
+        # Append new bar
+        ts = pd.to_datetime(bar.timestamp, utc=True)
+        df_tail.loc[ts] = [bar.open, bar.high, bar.low, bar.close, bar.volume]
+
+        # Keep only last N rows to limit memory
+        df_tail = df_tail.tail(long_ma * 3)
+
+        # Recompute indicators for latest rows
+        df_tail = add_indicators(df_tail)
+
+        row = df_tail.iloc[-1]
+
+        # Entry logic
+        long_cross = (
+            df_tail["ema50"].iloc[-2] <= df_tail["ema200"].iloc[-2]
+            and row["ema50"] > row["ema200"]
+        )
+        price_above = row["close"] > (row["ema200"] + row["atr14"])
+
+        account = trading.get_account()
+        if float(account.equity) < 500:
+            logging.warning("Equity below $500 – pausing trading.")
+            return
+
+        # Position state via Alpaca positions endpoint
+        positions = trading.get_all_positions()
+        in_position = any(pos.symbol == "BTCUSD" for pos in positions)
+
+        if not in_position and long_cross and price_above:
+            # Calculate qty worth $100 notionally
+            notional = 100
+            qty = round(notional / row["close"], 5)
+            order = MarketOrderRequest(
+                symbol="BTCUSD",
+                qty=qty,
+                side=OrderSide.BUY,
+                time_in_force=TimeInForce.IOC,
+            )
+            try:
+                trading.submit_order(order)
+                logging.info("BUY %.5f BTC @ %.2f", qty, row["close"])
+                trailing_stop = row["close"] - atr_mult * row["atr14"]
+                _log_trade("BUY", qty, row["close"])
+            except Exception as exc:  # noqa: BLE001
+                logging.error("Order submission failed: %s", exc)
+
+        elif in_position:
+            # Update trailing stop
+            trailing_stop = max(trailing_stop, row["close"] - atr_mult * row["atr14"])
+            exit_cross = row["ema50"] < row["ema200"]
+            exit_trail = row["close"] < trailing_stop
+            if exit_cross or exit_trail:
+                pos = next(p for p in positions if p.symbol == "BTCUSD")
+                qty = pos.qty_available
+                order = MarketOrderRequest(
+                    symbol="BTCUSD",
+                    qty=qty,
+                    side=OrderSide.SELL,
+                    time_in_force=TimeInForce.IOC,
+                )
+                try:
+                    trading.submit_order(order)
+                    logging.info("SELL %s BTC @ %.2f", qty, row["close"])
+                    _log_trade("SELL", qty, row["close"])
+                    trailing_stop = np.nan
+                except Exception as exc:  # noqa: BLE001
+                    logging.error("Order submission failed: %s", exc)
+
+    def _log_trade(side: str, qty: float, price: float) -> None:
+        """Append trade info to CSV file and update YAML status."""
+        fieldnames = ["timestamp", "side", "qty", "price"]
+        write_header = not os.path.exists(TRADES_CSV)
+        with open(TRADES_CSV, "a", newline="") as fh:
+            writer = csv.DictWriter(fh, fieldnames=fieldnames)
+            if write_header:
+                writer.writeheader()
+            writer.writerow({
+                "timestamp": datetime.utcnow().isoformat(),
+                "side": side,
+                "qty": qty,
+                "price": price,
+            })
+
+        # YAML update
+        if yaml is not None:
+            try:
+                with open("agent_status.yaml", "r", encoding="utf-8") as fh:
+                    status = yaml.safe_load(fh)
+            except FileNotFoundError:
+                status = {}
+            status.update({
+                "last_trade_time": datetime.utcnow().isoformat(),
+            })
+            with open("agent_status.yaml", "w", encoding="utf-8") as fh:
+                yaml.safe_dump(status, fh)
+
+    # Subscribe and run
+    stream.subscribe_bars(on_bar, "BTC/USD")
+    logging.info("Starting Phase 3 paper-trading loop (Ctrl-C to exit)…")
+    retry_attempts = 0
+    while True:
+        try:
+            await stream.run()
+        except Exception as exc:  # noqa: BLE001
+            logging.error("STREAM DOWN: %s", exc)
+            retry_attempts += 1
+            if retry_attempts > 5:
+                logging.critical("Maximum reconnect attempts reached – exiting.")
+                break
+            wait = 2 ** retry_attempts
+            logging.info("Reconnecting in %ds…", wait)
+            await asyncio.sleep(wait)
+
+
+def run_phase3() -> None:
+    print("[Phase 3] Launching paper-trading stream…")
+    asyncio.run(run_phase3_async())
+
+
+# ---------------------------------------------------------------------------
 # CLI routing
 # ---------------------------------------------------------------------------
 
@@ -415,7 +588,7 @@ def _parse_args():
     parser = argparse.ArgumentParser(description="BTC EMA crossover trading agent")
     parser.add_argument(
         "--phase",
-        choices=["1", "2"],
+        choices=["1", "2", "3"],
         default="1",
         help="Which phase to execute (1=design/data, 2=backtest)",
     )
@@ -429,6 +602,8 @@ if __name__ == "__main__":
             run_phase1()
         elif args.phase == "2":
             run_phase2()
+        elif args.phase == "3":
+            run_phase3()
     except KeyboardInterrupt:  # pragma: no cover
         print("Interrupted by user – exiting…", file=sys.stderr)
         sys.exit(130)
