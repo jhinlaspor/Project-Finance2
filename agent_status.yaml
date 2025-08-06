@@ -1,0 +1,76 @@
+# Alpaca Crypto Trading System - Agent Status
+# Last Updated: 2025-08-06 17:52:47 UTC
+
+system_info:
+  name: "BTC EMA Crossover Trading System"
+  version: "1.0.0"
+  environment: "Alpaca Paper Trading"
+  
+current_status:
+  mode: "DEVELOPMENT"  # DEVELOPMENT | PAPER | LIVE
+  phase: 2
+  phase_status: "FAILED"
+  last_update: "2025-08-06T17:52:47Z"
+  
+phase_results:
+  phase1:
+    status: "COMPLETED"
+    data_fetched: 186505
+    date_range: "2024-07-19 to 2025-01-15"
+    entry_signals: 583
+    exit_signals: 618
+    
+  phase2:
+    status: "FAILED"
+    initial_backtest:
+      sharpe_ratio: 0.05
+      max_drawdown: -0.0349
+      total_return: 0.0947
+      cagr: 0.2016
+      win_rate: 0.3705
+      total_trades: 583
+    optimization_attempts: 5
+    best_parameters:
+      ema_fast: 20
+      ema_slow: 100
+      atr_multiplier: 0.5
+      trailing_stop_atr: 1.0
+    best_results:
+      sharpe_ratio: -0.04
+      max_drawdown: -0.087
+    pass_criteria_met: false
+    
+  phase3:
+    status: "NOT_STARTED"
+    
+  phase4:
+    status: "NOT_STARTED"
+    
+  phase5:
+    status: "NOT_STARTED"
+    
+trading_stats:
+  paper_trades:
+    total: 0
+    profitable: 0
+    cumulative_pnl: 0.0
+    
+  live_trades:
+    total: 0
+    profitable: 0
+    cumulative_pnl: 0.0
+    
+risk_parameters:
+  max_drawdown_limit: 0.08
+  min_equity_threshold: 500
+  max_order_size: 1000
+  
+api_configuration:
+  base_url: "https://paper-api.alpaca.markets"
+  websocket_url: "wss://stream.data.alpaca.markets/v2/crypto"
+  
+notes:
+  - "Initial EMA crossover strategy failed to meet Sharpe >= 1.0 criteria"
+  - "Optimization tested 5 parameter combinations but couldn't achieve target metrics"
+  - "Strategy may need fundamental redesign or additional indicators"
+  - "Awaiting user input for next steps"
