@@ -442,8 +442,10 @@ async def run_phase3_async() -> None:  # noqa: C901 – asyncio complex
     atr_mult = params["atr_mult"]
 
     # Prepare trading + streaming clients (paper env by default)
-    trading = TradingClient(os.environ.get("APCA_API_KEY_ID"), os.environ.get("APCA_API_SECRET_KEY"), paper=True)
-    stream = CryptoDataStream()
+    api_key = os.environ.get("APCA_API_KEY_ID")
+    secret_key = os.environ.get("APCA_API_SECRET_KEY")
+    trading = TradingClient(api_key, secret_key, paper=True)
+    stream = CryptoDataStream(api_key, secret_key)
 
     # Load historical tail to seed indicators
     df_tail = fetch_crypto_bars(days=max(long_ma * 2, 200))
@@ -493,7 +495,7 @@ async def run_phase3_async() -> None:  # noqa: C901 – asyncio complex
             qty = round(notional / row["close"], 5)
             order = MarketOrderRequest(
                 symbol="BTCUSD",
-                qty=qty,
+                qty=str(qty),
                 side=OrderSide.BUY,
                 time_in_force=TimeInForce.IOC,
             )
@@ -512,10 +514,10 @@ async def run_phase3_async() -> None:  # noqa: C901 – asyncio complex
             exit_trail = row["close"] < trailing_stop
             if exit_cross or exit_trail:
                 pos = next(p for p in positions if p.symbol == "BTCUSD")
-                qty = pos.qty_available
+                qty = float(pos.qty)
                 order = MarketOrderRequest(
                     symbol="BTCUSD",
-                    qty=qty,
+                    qty=str(qty),
                     side=OrderSide.SELL,
                     time_in_force=TimeInForce.IOC,
                 )
@@ -556,21 +558,12 @@ async def run_phase3_async() -> None:  # noqa: C901 – asyncio complex
                 yaml.safe_dump(status, fh)
 
     # Subscribe and run
-    stream.subscribe_bars(on_bar, "BTC/USD")
+    stream.subscribe_bars(on_bar, "BTCUSD")
     logging.info("Starting Phase 3 paper-trading loop (Ctrl-C to exit)…")
-    retry_attempts = 0
-    while True:
-        try:
-            await stream.run()
-        except Exception as exc:  # noqa: BLE001
-            logging.error("STREAM DOWN: %s", exc)
-            retry_attempts += 1
-            if retry_attempts > 5:
-                logging.critical("Maximum reconnect attempts reached – exiting.")
-                break
-            wait = 2 ** retry_attempts
-            logging.info("Reconnecting in %ds…", wait)
-            await asyncio.sleep(wait)
+    try:
+        await stream.run()
+    except Exception as exc:  # noqa: BLE001
+        logging.critical("STREAM DOWN unrecoverable: %s", exc)
 
 
 def run_phase3() -> None:
