@@ -1,0 +1,227 @@
+2025-08-06 17:44:14,865 - INFO - Strategy initialized with base URL: https://paper-api.alpaca.markets
+2025-08-06 17:44:14,865 - INFO - ==================================================
+2025-08-06 17:44:14,865 - INFO - PHASE 1: STRATEGY DESIGN
+2025-08-06 17:44:14,865 - INFO - ==================================================
+2025-08-06 17:44:14,865 - INFO - Fetching 180 days of historical data for BTCUSD
+2025-08-06 17:44:15,065 - ERROR - Error fetching historical data: {"message":"invalid symbol: BTCUSD does not match ^[A-Z]+/[A-Z]+$"}
+
+2025-08-06 17:44:15,065 - ERROR - Error in Phase 1: {"message":"invalid symbol: BTCUSD does not match ^[A-Z]+/[A-Z]+$"}
+
+2025-08-06 17:44:28,810 - INFO - Strategy initialized with base URL: https://paper-api.alpaca.markets
+2025-08-06 17:44:28,810 - INFO - ==================================================
+2025-08-06 17:44:28,810 - INFO - PHASE 1: STRATEGY DESIGN
+2025-08-06 17:44:28,810 - INFO - ==================================================
+2025-08-06 17:44:28,810 - INFO - Fetching 180 days of historical data for BTC/USD
+2025-08-06 17:44:33,758 - INFO - Fetched 0 bars of data
+2025-08-06 17:44:33,793 - INFO - Calculating technical indicators
+2025-08-06 17:44:33,796 - INFO - Indicators calculated successfully
+2025-08-06 17:44:33,797 - INFO - Historical data with indicators saved to historical_data_with_indicators.csv
+2025-08-06 17:44:33,797 - INFO - 
+Data Summary:
+2025-08-06 17:44:33,797 - ERROR - Error in Phase 1: index 0 is out of bounds for axis 0 with size 0
+2025-08-06 17:45:51,866 - INFO - Strategy initialized with base URL: https://paper-api.alpaca.markets
+2025-08-06 17:45:51,866 - INFO - ==================================================
+2025-08-06 17:45:51,866 - INFO - PHASE 1: STRATEGY DESIGN
+2025-08-06 17:45:51,866 - INFO - ==================================================
+2025-08-06 17:45:51,866 - INFO - Fetching 180 days of historical data for BTC/USD
+2025-08-06 17:45:51,866 - INFO - Fetching chunk: 2024-12-16 to 2025-01-15
+2025-08-06 17:45:53,498 - INFO - Fetched 30354 bars in this chunk
+2025-08-06 17:45:53,998 - INFO - Fetching chunk: 2024-11-16 to 2024-12-16
+2025-08-06 17:45:55,281 - INFO - Fetched 29796 bars in this chunk
+2025-08-06 17:45:55,781 - INFO - Fetching chunk: 2024-10-17 to 2024-11-16
+2025-08-06 17:45:57,240 - INFO - Fetched 30104 bars in this chunk
+2025-08-06 17:45:57,740 - INFO - Fetching chunk: 2024-09-17 to 2024-10-17
+2025-08-06 17:45:58,974 - INFO - Fetched 29403 bars in this chunk
+2025-08-06 17:45:59,474 - INFO - Fetching chunk: 2024-08-18 to 2024-09-17
+2025-08-06 17:46:00,878 - INFO - Fetched 33100 bars in this chunk
+2025-08-06 17:46:01,379 - INFO - Fetching chunk: 2024-07-19 to 2024-08-18
+2025-08-06 17:46:02,876 - INFO - Fetched 33751 bars in this chunk
+2025-08-06 17:46:03,426 - INFO - Total bars fetched: 186505
+2025-08-06 17:46:03,435 - INFO - Calculating technical indicators
+2025-08-06 17:46:03,451 - INFO - Indicators calculated successfully
+2025-08-06 17:46:22,951 - INFO - Historical data with indicators saved to historical_data_with_indicators.csv
+2025-08-06 17:46:22,952 - INFO - 
+Data Summary:
+2025-08-06 17:46:22,952 - INFO - Date range: ('BTC/USD', Timestamp('2024-07-19 00:00:00+0000', tz='UTC')) to ('BTC/USD', Timestamp('2025-01-15 00:00:00+0000', tz='UTC'))
+2025-08-06 17:46:22,952 - INFO - Total bars: 186505
+2025-08-06 17:46:22,953 - INFO - Long entry signals: 583
+2025-08-06 17:46:22,953 - INFO - Long exit signals: 618
+2025-08-06 17:46:22,953 - INFO - 
+Phase 1 completed successfully!
+2025-08-06 17:46:22,954 - INFO - Proceeding to Phase 2: Backtesting...
+2025-08-06 17:47:50,995 - INFO - Strategy initialized with base URL: https://paper-api.alpaca.markets
+2025-08-06 17:47:50,995 - INFO - ==================================================
+2025-08-06 17:47:50,995 - INFO - PHASE 1: STRATEGY DESIGN
+2025-08-06 17:47:50,996 - INFO - ==================================================
+2025-08-06 17:47:50,996 - INFO - Fetching 180 days of historical data for BTC/USD
+2025-08-06 17:47:50,996 - INFO - Fetching chunk: 2024-12-16 to 2025-01-15
+2025-08-06 17:47:52,670 - INFO - Fetched 30354 bars in this chunk
+2025-08-06 17:47:53,171 - INFO - Fetching chunk: 2024-11-16 to 2024-12-16
+2025-08-06 17:47:54,606 - INFO - Fetched 29796 bars in this chunk
+2025-08-06 17:47:55,106 - INFO - Fetching chunk: 2024-10-17 to 2024-11-16
+2025-08-06 17:47:56,478 - INFO - Fetched 30104 bars in this chunk
+2025-08-06 17:47:56,978 - INFO - Fetching chunk: 2024-09-17 to 2024-10-17
+2025-08-06 17:47:58,154 - INFO - Fetched 29403 bars in this chunk
+2025-08-06 17:47:58,655 - INFO - Fetching chunk: 2024-08-18 to 2024-09-17
+2025-08-06 17:48:00,064 - INFO - Fetched 33100 bars in this chunk
+2025-08-06 17:48:00,564 - INFO - Fetching chunk: 2024-07-19 to 2024-08-18
+2025-08-06 17:48:02,131 - INFO - Fetched 33751 bars in this chunk
+2025-08-06 17:48:02,686 - INFO - Total bars fetched: 186505
+2025-08-06 17:48:02,696 - INFO - Calculating technical indicators
+2025-08-06 17:48:02,712 - INFO - Indicators calculated successfully
+2025-08-06 17:48:22,353 - INFO - Historical data with indicators saved to historical_data_with_indicators.csv
+2025-08-06 17:48:22,353 - INFO - 
+Data Summary:
+2025-08-06 17:48:22,354 - INFO - Date range: ('BTC/USD', Timestamp('2024-07-19 00:00:00+0000', tz='UTC')) to ('BTC/USD', Timestamp('2025-01-15 00:00:00+0000', tz='UTC'))
+2025-08-06 17:48:22,354 - INFO - Total bars: 186505
+2025-08-06 17:48:22,354 - INFO - Long entry signals: 583
+2025-08-06 17:48:22,354 - INFO - Long exit signals: 618
+2025-08-06 17:48:22,354 - INFO - 
+Phase 1 completed successfully!
+2025-08-06 17:48:22,354 - INFO - Proceeding to Phase 2: Backtesting...
+2025-08-06 17:48:22,354 - INFO - ==================================================
+2025-08-06 17:48:22,354 - INFO - PHASE 2: BACKTESTING
+2025-08-06 17:48:22,354 - INFO - ==================================================
+2025-08-06 17:48:22,354 - INFO - Running backtest...
+2025-08-06 17:48:31,099 - INFO - 
+Backtest Results:
+2025-08-06 17:48:31,100 - INFO - Initial Capital: $10,000.00
+2025-08-06 17:48:31,100 - INFO - Final Capital: $12,188.58
+2025-08-06 17:48:31,100 - INFO - Total Return: 21.89%
+2025-08-06 17:48:31,100 - INFO - CAGR: 49.42%
+2025-08-06 17:48:31,100 - INFO - Sharpe Ratio: 0.03
+2025-08-06 17:48:31,100 - INFO - Max Drawdown: -15.62%
+2025-08-06 17:48:31,100 - INFO - Total Trades: 583
+2025-08-06 17:48:31,100 - INFO - Win Rate: 27.44%
+2025-08-06 17:48:31,100 - INFO - Avg Win: 1.16%
+2025-08-06 17:48:31,100 - INFO - Avg Loss: -0.38%
+2025-08-06 17:48:33,188 - ERROR - Error: 'value' must be an instance of str or bytes, not a tuple
+2025-08-06 17:50:23,118 - INFO - Strategy initialized with base URL: https://paper-api.alpaca.markets
+2025-08-06 17:50:23,118 - INFO - ==================================================
+2025-08-06 17:50:23,118 - INFO - PHASE 1: STRATEGY DESIGN
+2025-08-06 17:50:23,118 - INFO - ==================================================
+2025-08-06 17:50:23,118 - INFO - Fetching 180 days of historical data for BTC/USD
+2025-08-06 17:50:23,118 - INFO - Fetching chunk: 2024-12-16 to 2025-01-15
+2025-08-06 17:50:24,757 - INFO - Fetched 30354 bars in this chunk
+2025-08-06 17:50:25,257 - INFO - Fetching chunk: 2024-11-16 to 2024-12-16
+2025-08-06 17:50:26,540 - INFO - Fetched 29796 bars in this chunk
+2025-08-06 17:50:27,041 - INFO - Fetching chunk: 2024-10-17 to 2024-11-16
+2025-08-06 17:50:28,412 - INFO - Fetched 30104 bars in this chunk
+2025-08-06 17:50:28,913 - INFO - Fetching chunk: 2024-09-17 to 2024-10-17
+2025-08-06 17:50:30,214 - INFO - Fetched 29403 bars in this chunk
+2025-08-06 17:50:30,715 - INFO - Fetching chunk: 2024-08-18 to 2024-09-17
+2025-08-06 17:50:32,197 - INFO - Fetched 33100 bars in this chunk
+2025-08-06 17:50:32,697 - INFO - Fetching chunk: 2024-07-19 to 2024-08-18
+2025-08-06 17:50:34,215 - INFO - Fetched 33751 bars in this chunk
+2025-08-06 17:50:34,774 - INFO - Total bars fetched: 186505
+2025-08-06 17:50:34,786 - INFO - Calculating technical indicators
+2025-08-06 17:50:34,803 - INFO - Indicators calculated successfully
+2025-08-06 17:50:54,338 - INFO - Historical data with indicators saved to historical_data_with_indicators.csv
+2025-08-06 17:50:54,339 - INFO - 
+Data Summary:
+2025-08-06 17:50:54,339 - INFO - Date range: ('BTC/USD', Timestamp('2024-07-19 00:00:00+0000', tz='UTC')) to ('BTC/USD', Timestamp('2025-01-15 00:00:00+0000', tz='UTC'))
+2025-08-06 17:50:54,339 - INFO - Total bars: 186505
+2025-08-06 17:50:54,339 - INFO - Long entry signals: 583
+2025-08-06 17:50:54,339 - INFO - Long exit signals: 618
+2025-08-06 17:50:54,339 - INFO - 
+Phase 1 completed successfully!
+2025-08-06 17:50:54,339 - INFO - Proceeding to Phase 2: Backtesting...
+2025-08-06 17:50:54,339 - INFO - ==================================================
+2025-08-06 17:50:54,339 - INFO - PHASE 2: BACKTESTING
+2025-08-06 17:50:54,339 - INFO - ==================================================
+2025-08-06 17:50:54,340 - INFO - Running backtest...
+2025-08-06 17:51:02,830 - INFO - 
+Backtest Results:
+2025-08-06 17:51:02,831 - INFO - Initial Capital: $10,000.00
+2025-08-06 17:51:02,831 - INFO - Final Capital: $10,947.24
+2025-08-06 17:51:02,831 - INFO - Total Return: 9.47%
+2025-08-06 17:51:02,831 - INFO - CAGR: 20.16%
+2025-08-06 17:51:02,831 - INFO - Sharpe Ratio: 0.05
+2025-08-06 17:51:02,831 - INFO - Max Drawdown: -3.49%
+2025-08-06 17:51:02,831 - INFO - Total Trades: 583
+2025-08-06 17:51:02,831 - INFO - Win Rate: 37.05%
+2025-08-06 17:51:02,831 - INFO - Avg Win: 0.23%
+2025-08-06 17:51:02,831 - INFO - Avg Loss: -0.11%
+2025-08-06 17:51:04,851 - ERROR - Error: 'value' must be an instance of str or bytes, not a tuple
+2025-08-06 17:51:20,173 - INFO - Strategy initialized with base URL: https://paper-api.alpaca.markets
+2025-08-06 17:51:20,173 - INFO - ==================================================
+2025-08-06 17:51:20,173 - INFO - PHASE 1: STRATEGY DESIGN
+2025-08-06 17:51:20,173 - INFO - ==================================================
+2025-08-06 17:51:20,173 - INFO - Fetching 180 days of historical data for BTC/USD
+2025-08-06 17:51:20,173 - INFO - Fetching chunk: 2024-12-16 to 2025-01-15
+2025-08-06 17:51:21,758 - INFO - Fetched 30354 bars in this chunk
+2025-08-06 17:51:22,258 - INFO - Fetching chunk: 2024-11-16 to 2024-12-16
+2025-08-06 17:51:23,479 - INFO - Fetched 29796 bars in this chunk
+2025-08-06 17:51:23,979 - INFO - Fetching chunk: 2024-10-17 to 2024-11-16
+2025-08-06 17:51:25,385 - INFO - Fetched 30104 bars in this chunk
+2025-08-06 17:51:25,886 - INFO - Fetching chunk: 2024-09-17 to 2024-10-17
+2025-08-06 17:51:27,115 - INFO - Fetched 29403 bars in this chunk
+2025-08-06 17:51:27,615 - INFO - Fetching chunk: 2024-08-18 to 2024-09-17
+2025-08-06 17:51:29,290 - INFO - Fetched 33100 bars in this chunk
+2025-08-06 17:51:29,791 - INFO - Fetching chunk: 2024-07-19 to 2024-08-18
+2025-08-06 17:51:31,238 - INFO - Fetched 33751 bars in this chunk
+2025-08-06 17:51:31,791 - INFO - Total bars fetched: 186505
+2025-08-06 17:51:31,803 - INFO - Calculating technical indicators
+2025-08-06 17:51:31,818 - INFO - Indicators calculated successfully
+2025-08-06 17:51:51,302 - INFO - Historical data with indicators saved to historical_data_with_indicators.csv
+2025-08-06 17:51:51,302 - INFO - 
+Data Summary:
+2025-08-06 17:51:51,302 - INFO - Date range: ('BTC/USD', Timestamp('2024-07-19 00:00:00+0000', tz='UTC')) to ('BTC/USD', Timestamp('2025-01-15 00:00:00+0000', tz='UTC'))
+2025-08-06 17:51:51,302 - INFO - Total bars: 186505
+2025-08-06 17:51:51,303 - INFO - Long entry signals: 583
+2025-08-06 17:51:51,303 - INFO - Long exit signals: 618
+2025-08-06 17:51:51,303 - INFO - 
+Phase 1 completed successfully!
+2025-08-06 17:51:51,303 - INFO - Proceeding to Phase 2: Backtesting...
+2025-08-06 17:51:51,303 - INFO - ==================================================
+2025-08-06 17:51:51,303 - INFO - PHASE 2: BACKTESTING
+2025-08-06 17:51:51,303 - INFO - ==================================================
+2025-08-06 17:51:51,303 - INFO - Running backtest...
+2025-08-06 17:52:00,214 - INFO - 
+Backtest Results:
+2025-08-06 17:52:00,214 - INFO - Initial Capital: $10,000.00
+2025-08-06 17:52:00,214 - INFO - Final Capital: $10,947.24
+2025-08-06 17:52:00,214 - INFO - Total Return: 9.47%
+2025-08-06 17:52:00,214 - INFO - CAGR: 20.16%
+2025-08-06 17:52:00,214 - INFO - Sharpe Ratio: 0.05
+2025-08-06 17:52:00,214 - INFO - Max Drawdown: -3.49%
+2025-08-06 17:52:00,214 - INFO - Total Trades: 583
+2025-08-06 17:52:00,214 - INFO - Win Rate: 37.05%
+2025-08-06 17:52:00,214 - INFO - Avg Win: 0.23%
+2025-08-06 17:52:00,214 - INFO - Avg Loss: -0.11%
+2025-08-06 17:52:02,228 - WARNING - Failed to create visualization: 'value' must be an instance of str or bytes, not a tuple
+2025-08-06 17:52:02,229 - INFO - Backtest results saved to backtest_results.json and equity_curve.csv
+2025-08-06 17:52:02,229 - INFO - 
+Pass Criteria Check:
+2025-08-06 17:52:02,229 - INFO - Sharpe Ratio >= 1.0: FAIL (0.05)
+2025-08-06 17:52:02,229 - INFO - Max Drawdown <= 10%: PASS (3.49%)
+2025-08-06 17:52:02,229 - INFO - Overall: FAIL
+2025-08-06 17:52:02,229 - INFO - 
+Backtest failed pass criteria. Running parameter optimization...
+2025-08-06 17:52:02,229 - INFO - 
+Starting parameter optimization...
+2025-08-06 17:52:02,250 - INFO - Calculating technical indicators
+2025-08-06 17:52:02,266 - INFO - Indicators calculated successfully
+2025-08-06 17:52:02,266 - INFO - Running backtest...
+2025-08-06 17:52:11,055 - INFO - Iteration 1: EMA(20/100), ATR_mult=0.5, Trail=1.0 -> Sharpe=-0.04, DD=-8.7%, Score=-0.91
+2025-08-06 17:52:11,088 - INFO - Calculating technical indicators
+2025-08-06 17:52:11,105 - INFO - Indicators calculated successfully
+2025-08-06 17:52:11,105 - INFO - Running backtest...
+2025-08-06 17:52:20,071 - INFO - Iteration 2: EMA(20/100), ATR_mult=0.5, Trail=1.5 -> Sharpe=-0.02, DD=-10.4%, Score=-2.10
+2025-08-06 17:52:20,106 - INFO - Calculating technical indicators
+2025-08-06 17:52:20,126 - INFO - Indicators calculated successfully
+2025-08-06 17:52:20,126 - INFO - Running backtest...
+2025-08-06 17:52:29,311 - INFO - Iteration 3: EMA(20/100), ATR_mult=0.5, Trail=2.0 -> Sharpe=0.01, DD=-11.0%, Score=-2.19
+2025-08-06 17:52:29,347 - INFO - Calculating technical indicators
+2025-08-06 17:52:29,363 - INFO - Indicators calculated successfully
+2025-08-06 17:52:29,363 - INFO - Running backtest...
+2025-08-06 17:52:38,373 - INFO - Iteration 4: EMA(20/100), ATR_mult=0.5, Trail=2.5 -> Sharpe=0.02, DD=-9.9%, Score=-0.96
+2025-08-06 17:52:38,400 - INFO - Calculating technical indicators
+2025-08-06 17:52:38,419 - INFO - Indicators calculated successfully
+2025-08-06 17:52:38,420 - INFO - Running backtest...
+2025-08-06 17:52:47,283 - INFO - Iteration 5: EMA(20/100), ATR_mult=0.75, Trail=1.0 -> Sharpe=-0.05, DD=-9.4%, Score=-0.98
+2025-08-06 17:52:47,283 - INFO - 
+Optimization complete. Best parameters: {'ema_fast': 20, 'ema_slow': 100, 'atr_multiplier': 0.5, 'trailing_stop_atr': 1.0}
+2025-08-06 17:52:47,284 - INFO - 
+Optimization failed to find parameters that meet criteria.
+2025-08-06 17:52:47,284 - INFO - Manual intervention required or different strategy needed.

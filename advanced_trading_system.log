@@ -1,0 +1,118 @@
+2025-08-06 18:03:24,938 - INFO - Advanced strategy initialized with base URL: https://paper-api.alpaca.markets
+2025-08-06 18:03:24,939 - INFO - ==================================================
+2025-08-06 18:03:24,939 - INFO - PHASE 1: ADVANCED STRATEGY DESIGN
+2025-08-06 18:03:24,939 - INFO - ==================================================
+2025-08-06 18:03:24,939 - INFO - Fetching 180 days of historical data for BTC/USD
+2025-08-06 18:03:24,939 - INFO - Fetching chunk: 2024-12-16 to 2025-01-15
+2025-08-06 18:03:26,650 - INFO - Fetched 30354 bars in this chunk
+2025-08-06 18:03:27,150 - INFO - Fetching chunk: 2024-11-16 to 2024-12-16
+2025-08-06 18:03:28,429 - INFO - Fetched 29796 bars in this chunk
+2025-08-06 18:03:28,929 - INFO - Fetching chunk: 2024-10-17 to 2024-11-16
+2025-08-06 18:03:30,246 - INFO - Fetched 30104 bars in this chunk
+2025-08-06 18:03:30,747 - INFO - Fetching chunk: 2024-09-17 to 2024-10-17
+2025-08-06 18:03:31,968 - INFO - Fetched 29403 bars in this chunk
+2025-08-06 18:03:32,468 - INFO - Fetching chunk: 2024-08-18 to 2024-09-17
+2025-08-06 18:03:34,156 - INFO - Fetched 33100 bars in this chunk
+2025-08-06 18:03:34,657 - INFO - Fetching chunk: 2024-07-19 to 2024-08-18
+2025-08-06 18:03:36,293 - INFO - Fetched 33751 bars in this chunk
+2025-08-06 18:03:36,867 - INFO - Total 1-minute bars fetched: 186505
+2025-08-06 18:03:36,868 - INFO - Aggregating to 5-minute bars...
+2025-08-06 18:03:37,372 - INFO - Aggregated to 50938 5-minute bars
+2025-08-06 18:03:37,394 - INFO - Calculating advanced technical indicators
+2025-08-06 18:03:37,419 - INFO - Indicators calculated successfully
+2025-08-06 18:03:38,516 - INFO - Historical 5m data with advanced indicators saved
+2025-08-06 18:03:38,516 - INFO - 
+Data Summary:
+2025-08-06 18:03:38,516 - INFO - Date range: 2024-07-19 00:00:00+00:00 to 2025-01-15 00:00:00+00:00
+2025-08-06 18:03:38,516 - INFO - Total 5-minute bars: 50938
+2025-08-06 18:03:38,517 - INFO - Long signals: 0
+2025-08-06 18:03:38,517 - INFO - Short signals: 0
+2025-08-06 18:03:38,517 - INFO - Average RSI: 50.53
+2025-08-06 18:03:38,517 - INFO - Average volume ratio: 1.03
+2025-08-06 18:03:38,517 - INFO - 
+Phase 1 completed successfully!
+2025-08-06 18:03:38,517 - INFO - Proceeding to Phase 2: Backtesting...
+2025-08-06 18:03:38,517 - INFO - Running advanced strategy backtest...
+2025-08-06 18:03:40,932 - INFO - 
+==================================================
+2025-08-06 18:03:40,933 - INFO - ADVANCED STRATEGY BACKTEST RESULTS
+2025-08-06 18:03:40,933 - INFO - ==================================================
+2025-08-06 18:03:40,933 - INFO - Initial Capital: $10,000.00
+2025-08-06 18:03:40,933 - INFO - Final Capital: $10,000.00
+2025-08-06 18:03:40,933 - INFO - Total Return: 0.00%
+2025-08-06 18:03:40,933 - INFO - CAGR: 0.00%
+2025-08-06 18:03:40,933 - INFO - Sharpe Ratio: 0.00
+2025-08-06 18:03:40,933 - INFO - Max Drawdown: 0.00%
+2025-08-06 18:03:40,933 - INFO - Total Trades: 0
+2025-08-06 18:03:40,933 - INFO -   - Long Trades: 0
+2025-08-06 18:03:40,933 - INFO -   - Short Trades: 0
+2025-08-06 18:03:40,933 - INFO - Win Rate: 0.00%
+2025-08-06 18:03:40,933 - INFO - Avg Win: 0.00%
+2025-08-06 18:03:40,933 - INFO - Avg Loss: 0.00%
+2025-08-06 18:03:40,933 - INFO - Profit Factor: 0.00
+2025-08-06 18:03:41,236 - INFO - 
+Pass Criteria Check:
+2025-08-06 18:03:41,236 - INFO - Sharpe Ratio >= 1.0: FAIL (0.00)
+2025-08-06 18:03:41,236 - INFO - Max Drawdown <= 10%: PASS (0.00%)
+2025-08-06 18:03:41,236 - INFO - Overall: FAIL
+2025-08-06 18:03:41,236 - INFO - 
+Strategy needs further optimization...
+2025-08-06 18:04:15,534 - INFO - Advanced strategy initialized with base URL: https://paper-api.alpaca.markets
+2025-08-06 18:04:15,534 - INFO - ==================================================
+2025-08-06 18:04:15,534 - INFO - PHASE 1: ADVANCED STRATEGY DESIGN
+2025-08-06 18:04:15,534 - INFO - ==================================================
+2025-08-06 18:04:15,534 - INFO - Fetching 180 days of historical data for BTC/USD
+2025-08-06 18:04:15,534 - INFO - Fetching chunk: 2024-12-16 to 2025-01-15
+2025-08-06 18:04:17,119 - INFO - Fetched 30354 bars in this chunk
+2025-08-06 18:04:17,619 - INFO - Fetching chunk: 2024-11-16 to 2024-12-16
+2025-08-06 18:04:18,816 - INFO - Fetched 29796 bars in this chunk
+2025-08-06 18:04:19,317 - INFO - Fetching chunk: 2024-10-17 to 2024-11-16
+2025-08-06 18:04:20,628 - INFO - Fetched 30104 bars in this chunk
+2025-08-06 18:04:21,128 - INFO - Fetching chunk: 2024-09-17 to 2024-10-17
+2025-08-06 18:04:22,320 - INFO - Fetched 29403 bars in this chunk
+2025-08-06 18:04:22,820 - INFO - Fetching chunk: 2024-08-18 to 2024-09-17
+2025-08-06 18:04:24,261 - INFO - Fetched 33100 bars in this chunk
+2025-08-06 18:04:24,762 - INFO - Fetching chunk: 2024-07-19 to 2024-08-18
+2025-08-06 18:04:26,297 - INFO - Fetched 33751 bars in this chunk
+2025-08-06 18:04:26,860 - INFO - Total 1-minute bars fetched: 186505
+2025-08-06 18:04:26,860 - INFO - Aggregating to 5-minute bars...
+2025-08-06 18:04:27,314 - INFO - Aggregated to 50938 5-minute bars
+2025-08-06 18:04:27,332 - INFO - Calculating advanced technical indicators
+2025-08-06 18:04:27,355 - INFO - Indicators calculated successfully
+2025-08-06 18:04:28,503 - INFO - Historical 5m data with advanced indicators saved
+2025-08-06 18:04:28,503 - INFO - 
+Data Summary:
+2025-08-06 18:04:28,503 - INFO - Date range: 2024-07-19 00:00:00+00:00 to 2025-01-15 00:00:00+00:00
+2025-08-06 18:04:28,504 - INFO - Total 5-minute bars: 50938
+2025-08-06 18:04:28,504 - INFO - Long signals: 37
+2025-08-06 18:04:28,504 - INFO - Short signals: 50
+2025-08-06 18:04:28,504 - INFO - Average RSI: 50.53
+2025-08-06 18:04:28,504 - INFO - Average volume ratio: 1.03
+2025-08-06 18:04:28,504 - INFO - 
+Phase 1 completed successfully!
+2025-08-06 18:04:28,504 - INFO - Proceeding to Phase 2: Backtesting...
+2025-08-06 18:04:28,504 - INFO - Running advanced strategy backtest...
+2025-08-06 18:04:30,710 - INFO - 
+==================================================
+2025-08-06 18:04:30,710 - INFO - ADVANCED STRATEGY BACKTEST RESULTS
+2025-08-06 18:04:30,710 - INFO - ==================================================
+2025-08-06 18:04:30,710 - INFO - Initial Capital: $10,000.00
+2025-08-06 18:04:30,710 - INFO - Final Capital: $-66.14
+2025-08-06 18:04:30,710 - INFO - Total Return: -100.66%
+2025-08-06 18:04:30,710 - INFO - CAGR: nan%
+2025-08-06 18:04:30,710 - INFO - Sharpe Ratio: -0.68
+2025-08-06 18:04:30,710 - INFO - Max Drawdown: -100.66%
+2025-08-06 18:04:30,710 - INFO - Total Trades: 1
+2025-08-06 18:04:30,710 - INFO -   - Long Trades: 0
+2025-08-06 18:04:30,710 - INFO -   - Short Trades: 1
+2025-08-06 18:04:30,710 - INFO - Win Rate: 0.00%
+2025-08-06 18:04:30,710 - INFO - Avg Win: 0.00%
+2025-08-06 18:04:30,710 - INFO - Avg Loss: -0.66%
+2025-08-06 18:04:30,710 - INFO - Profit Factor: 0.00
+2025-08-06 18:04:31,216 - INFO - 
+Pass Criteria Check:
+2025-08-06 18:04:31,217 - INFO - Sharpe Ratio >= 1.0: FAIL (-0.68)
+2025-08-06 18:04:31,217 - INFO - Max Drawdown <= 10%: FAIL (100.66%)
+2025-08-06 18:04:31,217 - INFO - Overall: FAIL
+2025-08-06 18:04:31,217 - INFO - 
+Strategy needs further optimization...

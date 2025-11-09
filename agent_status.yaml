@@ -1,0 +1,141 @@
+# Alpaca Crypto Trading System - Agent Status
+# Last Updated: 2025-08-06 18:27:08 UTC
+
+system_info:
+  name: "BTC Trading System - Multiple Strategies Tested"
+  version: "3.0.0"
+  environment: "Alpaca Paper Trading"
+  
+current_status:
+  mode: "DEVELOPMENT"  # DEVELOPMENT | PAPER | LIVE
+  phase: 2
+  phase_status: "COMPLETED"
+  last_update: "2025-08-06T18:27:08Z"
+  
+phase_results:
+  phase1:
+    status: "COMPLETED"
+    data_fetched: 186505
+    date_range: "2024-07-19 to 2025-01-15"
+    entry_signals: 583
+    exit_signals: 618
+    
+  phase2:
+    status: "FAILED"
+    initial_backtest:
+      sharpe_ratio: 0.05
+      max_drawdown: -0.0349
+      total_return: 0.0947
+      cagr: 0.2016
+      win_rate: 0.3705
+      total_trades: 583
+    optimization_attempts: 5
+    best_parameters:
+      ema_fast: 20
+      ema_slow: 100
+      atr_multiplier: 0.5
+      trailing_stop_atr: 1.0
+    best_results:
+      sharpe_ratio: -0.04
+      max_drawdown: -0.087
+    pass_criteria_met: false
+    
+  phase3:
+    status: "NOT_STARTED"
+    
+  phase4:
+    status: "NOT_STARTED"
+    
+  phase5:
+    status: "NOT_STARTED"
+    
+trading_stats:
+  paper_trades:
+    total: 0
+    profitable: 0
+    cumulative_pnl: 0.0
+    
+  live_trades:
+    total: 0
+    profitable: 0
+    cumulative_pnl: 0.0
+    
+risk_parameters:
+  max_drawdown_limit: 0.08
+  min_equity_threshold: 500
+  max_order_size: 1000
+  
+api_configuration:
+  base_url: "https://paper-api.alpaca.markets"
+  websocket_url: "wss://stream.data.alpaca.markets/v2/crypto"
+  
+strategies_tested:
+  1_ema_crossover:
+    timeframe: "1m"
+    results:
+      sharpe_ratio: 0.05
+      max_drawdown: -0.0349
+      status: "FAILED"
+  
+  2_advanced_multi_indicator:
+    timeframe: "5m"
+    indicators: ["RSI", "MACD", "Bollinger Bands", "Volume"]
+    results:
+      sharpe_ratio: -0.68
+      max_drawdown: -1.0066
+      status: "FAILED"
+      
+  3_trend_following:
+    timeframe: "5m"
+    indicators: ["EMA 20/50/200", "RSI", "ATR"]
+    results:
+      sharpe_ratio: 10.67
+      max_drawdown: -0.9517
+      status: "FAILED"
+      note: "High Sharpe but unacceptable drawdown due to risk management bug"
+      
+  4_mean_reversion_v1:
+    timeframe: "5m"
+    indicators: ["Bollinger Bands", "Z-score", "RSI Divergence", "Volume Profile", "ATR"]
+    risk_management: ["Kelly Criterion", "Dynamic Stops", "Volatility Scaling"]
+    results:
+      sharpe_ratio: 3.37
+      max_drawdown: -0.1263
+      win_rate: 0.5565
+      profit_factor: 1.10
+      total_trades: 1594
+      status: "FAILED"
+      note: "Excellent Sharpe but drawdown exceeded 10% limit"
+      
+  5_mean_reversion_optimized:
+    timeframe: "5m"
+    adjustments: ["Stricter entry thresholds", "Lower position sizes", "Tighter stops"]
+    results:
+      sharpe_ratio: 0.17
+      max_drawdown: -0.0962
+      win_rate: 0.7692
+      profit_factor: 7.31
+      total_trades: 13
+      status: "FAILED"
+      note: "Drawdown controlled but too conservative, low Sharpe"
+      
+  6_mean_reversion_balanced:
+    timeframe: "5m"
+    adjustments: ["Balanced parameters", "Multiple entry signals", "Dynamic risk sizing"]
+    results:
+      sharpe_ratio: 0.14
+      max_drawdown: -0.1003
+      win_rate: 0.5294
+      profit_factor: 1.95
+      total_trades: 17
+      status: "FAILED"
+      note: "Still couldn't achieve both criteria simultaneously"
+
+notes:
+  - "All strategies failed to meet BOTH criteria of Sharpe >= 1.0 AND Max DD <= 10%"
+  - "Mean reversion showed the most promise with Sharpe of 3.37 but drawdown control remains challenging"
+  - "Crypto's volatile nature makes simultaneous achievement of high Sharpe and low drawdown very difficult"
+  - "Consider: 1) Portfolio approach with multiple uncorrelated strategies"
+  - "Consider: 2) Market making or statistical arbitrage strategies"
+  - "Consider: 3) Options strategies for better risk/reward profiles"
+  - "Consider: 4) Machine learning approaches for dynamic parameter optimization"
